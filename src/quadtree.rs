@@ -73,22 +73,29 @@ where U : Number
         self.south_west = Some(Box::new(QuadTree::new(sub_boxes[3].clone(), self.capacity)));
     }
 
-    pub fn draw(&self) {
-        println!("Drawing quadtree");
-        println!("Boundary: {:?}", self.boundary);
-        println!("Points: {:?}", self.points);
-        if self.north_west.is_some() {
-            self.north_west.as_ref().unwrap().draw();
-        }
-        if self.north_east.is_some() {
-            self.north_east.as_ref().unwrap().draw();
-        }
-        if self.south_west.is_some() {
-            self.south_west.as_ref().unwrap().draw();
-        }
-        if self.south_east.is_some() {
-            self.south_east.as_ref().unwrap().draw();
+    pub fn query_range(&self, range: Box2d<U>) -> Vec<Point<U>> {
+        let mut points = Vec::new();
+        
+        if !self.boundary.intersects_box(&range) {
+            return points;
         }
 
+        for point in &self.points {
+            if range.contains(point) {
+                points.push(point.clone());
+            }
+        }
+
+        if self.north_east.is_none() {
+            return points;
+        }
+
+        // query the sub quadtree
+        points.append(&mut self.north_west.as_ref().unwrap().query_range(range.clone()));
+        points.append(&mut self.north_east.as_ref().unwrap().query_range(range.clone()));
+        points.append(&mut self.south_west.as_ref().unwrap().query_range(range.clone()));
+        points.append(&mut self.south_east.as_ref().unwrap().query_range(range));
+
+        points
     }
 }
