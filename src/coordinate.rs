@@ -1,3 +1,4 @@
+#[derive(Clone, Debug)]
 pub struct Point<U> {
     pub x: U,
     pub y: U,

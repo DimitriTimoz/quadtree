@@ -1,9 +1,11 @@
+use std::fmt::Debug;
+
 pub mod coordinate;
 pub mod box2d;
 pub mod prelude;
 pub mod quadtree;
 
-pub trait Number: std::ops::Sub<Output = Self> + std::ops::Add<Output = Self> + std::ops::Div<Output = Self> + std::cmp::PartialOrd + Copy + std::convert::From<u8> {}
+pub trait Number: std::ops::Sub<Output = Self> + std::ops::Add<Output = Self> + std::ops::Div<Output = Self> + std::cmp::PartialOrd + Copy + std::convert::From<u8> + Debug {}
 
 impl Number for f32 {}
 
