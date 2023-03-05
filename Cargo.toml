@@ -1,5 +1,5 @@
 [package]
-name = "quadtree"
+name = "quad3"
 authors = [ "Dimitri Timoz <dimitri.timoz@protonmail.com" ]
 description = "A simple quadtree implementation in Rust"
 repository = "https://github.com/DimitriTimoz/quadtree"

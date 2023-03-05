@@ -1,4 +1,7 @@
-# Quadtree
+# Quad3
+
+[![Crates.io](https://img.shields.io/crates/v/quad3.svg)](https://crates.io/crates/quad3)
+[![Docs.rs](https://docs.rs/quad3/badge.svg)](https://docs.rs/quad3)
 
 A quadtree implementation in rust.
 
@@ -8,14 +11,14 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-quadtree = "0.1"
+quad3 = "0.1"
 ```
 
 
 ## Example
 
 ```rust
-use quadtree::prelude::*;
+use quad3::prelude::*;
 // Create a new quadtree with a bounding box of 20x20 centred in (0, 0) and a max amount of 4 items per node
 let mut quadtree = QuadTree::new(Box2d::new(Point::new(0.0, 0.0), 10.0), 4);
 

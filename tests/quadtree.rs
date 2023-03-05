@@ -1,4 +1,4 @@
-use quadtree::prelude::*;
+use quad3::prelude::*;
 
 #[test]
 fn test_quadtree_create() {
