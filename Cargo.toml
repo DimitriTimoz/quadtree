@@ -1,5 +1,9 @@
 [package]
 name = "quadtree"
+authors = [ "Dimitri Timoz <dimitri.timoz@protonmail.com" ]
+description = "A simple quadtree implementation in Rust"
+repository = "https://github.com/DimitriTimoz/quadtree"
+keywords = ["quadtree", "algorithm", "data-structure"]
 version = "0.1.0"
 edition = "2021"
 
